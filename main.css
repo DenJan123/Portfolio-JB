@@ -13,7 +13,6 @@ html, body {
 }
 
 body {
-    /*background-color: #b8c6db;*/
     background: linear-gradient(315deg, #eeeeee 0%, #f5f7fa 74%) fixed;
 }
 
@@ -22,26 +21,11 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    display: flex;
-    justify-content: flex-end;
     float: right;
     background: #252933;
     opacity: .5;
-    transition: width 0.5s ease;
+    transition: all 0.5s ease;
 }
-
-/*.wide-screen .nav-list {*/
-/*    display: flex;*/
-/*    margin-right: .5rem;*/
-/*    font-size: 1.5rem;*/
-/*}*/
-
-/*.wide-screen .nav-list a {*/
-/*    display: block;*/
-/*    margin: .75rem;*/
-/*    padding: .25rem;*/
-/*    color: white;*/
-/*}*/
 
 #nav-wrapper:hover {
     opacity: 1;
@@ -233,13 +217,6 @@ footer {
     opacity: 1
 }
 
-/*hamburger action*/
-
-.wide-screen .nav-list {
-    display: flex;
-    margin-right: .5rem;
-    font-size: 1.5rem;
-}
 
 .wide-screen .nav-list a {
     display: block;
@@ -251,26 +228,54 @@ footer {
     color: tomato;
 }
 
-.nav-list {
-    visibility: hidden;
+ul a {
+    display: block;
+    padding: 40px;
+    border-right: 1px solid #aaa;
+    text-decoration: none;
+    font-size: 1.5em;
 }
-@media all and (min-width: 1000px) {
 
-    .center {
+ul {
+    clear: both;
+    max-height: 0;
+    transition: all .2s ease-out;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+#nav-wrapper{
+    width: fit-content;
+}
+@media all and (min-width: 801px) {
+    .hamburger {
         display: none;
     }
-    .nav-list {
-        visibility: visible;
+
+    li {
+        float: right;
     }
-}
-@media all and (max-width: 1000px){
-    header #nav-wrapper .wide-screen > label ~ .nav-list {
-        display:flex;
+    li a {
+        padding:20px 30px;
     }
+    ul,
+    nav {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    #nav-wrapper{
+        width:100%;
+    }
+
 }
 
+
 .center {
-    top: 10px;
+    top: 0px;
     right: 10px;
     position: relative;
     width: 50px;
@@ -290,7 +295,6 @@ footer {
     transition: 0.5s;
 }
 
-.nav-list,
 #ham-checkbox{
     display:none;
 }
@@ -305,34 +309,9 @@ footer {
     transform: scale(0);
 }
 
-/*#ham-checkbox:checked ~ .nav-list <*/
-#ham-checkbox:checked ~ #nav-wrapper {
-    /*right:0;*/
-    /*position:fixed;*/
-    width: 150px;
-}
 #ham-checkbox:checked ~ #nav-wrapper .nav-list {
-    display: block;
-    visibility: visible;
+
+    max-height:240px;
 }
 
 
-
-
-
-
-/* original on hover design*/
-/*.center:hover:before {*/
-/*    transform: translateY(12px) rotate(135deg);*/
-/*}*/
-/*.center:hover:after {*/
-/*    transform: translateY(-12px) rotate(-135deg);*/
-/*}*/
-/*.center:hover div {*/
-/*    transform: scale(0);*/
-/*}*/
-
-
-/*#ham-checkbox{*/
-/*    display:none;*/
-/*}*/
